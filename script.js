@@ -49,6 +49,22 @@ class LinkedList {
     console.log(`count:${count}`);
     return count;
   }
+
+  // function that return the first node in the list
+  getHead() {
+    return this.head;
+  }
+
+  // function that returns the last node in the list
+  getTail() {
+    let lastNode = this.head;
+    if (lastNode) {
+      while (lastNode.next) {
+        lastNode = lastNode.next;
+      }
+    }
+    return lastNode;
+  }
 }
 const list = new LinkedList();
 list.append(5);
