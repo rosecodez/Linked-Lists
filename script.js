@@ -50,7 +50,7 @@ class LinkedList {
     return count;
   }
 
-  // function that return the first node in the list
+  // function that returns the first node in the list
   getHead() {
     return this.head;
   }
@@ -65,9 +65,27 @@ class LinkedList {
     }
     return lastNode;
   }
+
+  // function that returns the node at the given index
+  at(index) {
+    let node = this.head;
+    if (index == 0) {
+      return this.head;
+    }
+    while (index--) {
+      if (node.nextNode !== null) {
+        node = node.nextNode;
+      } else {
+        console.log('index does not exist');
+      }
+    }
+    return node;
+  }
 }
 const list = new LinkedList();
 list.append(5);
 list.prepend(2);
+list.prepend(10);
 console.log(list);
 list.size();
+console.log(list.at(1));
