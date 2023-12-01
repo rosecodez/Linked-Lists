@@ -102,12 +102,28 @@ class LinkedList {
     previous.nextNode = null;
     return this.head;
   }
+
+  // function that return true if the passed value is in the list and otherwise returns false
+  contains(value) {
+    const current = this.head;
+    while (current != null) {
+      if (current.value === value) {
+        console.log(`linked list contains: ${value}`);
+        return true;
+      }
+      current = current.next;
+    }
+    console.log(`linked list does not contain: ${value}`);
+    return false;
+  }
 }
+
 const list = new LinkedList();
 list.append(5);
 list.prepend(2);
 list.prepend(10);
 list.pop();
+list.contains(10);
 console.log(list);
 list.size();
 console.log(list.at(1));
