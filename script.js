@@ -81,11 +81,33 @@ class LinkedList {
     }
     return node;
   }
+
+  // function that removes the last element from the list
+  pop() {
+    if (!this.head) {
+      return null;
+    }
+
+    if (!this.head.nextNode) {
+      this.head = null;
+      return;
+    }
+    let previous = this.head;
+    let tail = this.head.nextNode;
+    while (tail.nextNode !== null) {
+      previous = tail;
+      tail = tail.nextNode;
+    }
+
+    previous.nextNode = null;
+    return this.head;
+  }
 }
 const list = new LinkedList();
 list.append(5);
 list.prepend(2);
 list.prepend(10);
+list.pop();
 console.log(list);
 list.size();
 console.log(list.at(1));
