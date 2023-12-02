@@ -46,12 +46,13 @@ class LinkedList {
       count++;
       node = node.nextNode;
     }
-    console.log(`count:${count}`);
+    console.log(`linked list has: ${count} elements`);
     return count;
   }
 
   // function that returns the first node in the list
   getHead() {
+    console.log(`first node is ${this.head}`);
     return this.head;
   }
 
@@ -63,13 +64,14 @@ class LinkedList {
         lastNode = lastNode.next;
       }
     }
+    console.log(`last node is: ${lastNode}`);
     return lastNode;
   }
 
   // function that returns the node at the given index
   at(index) {
     let node = this.head;
-    if (index == 0) {
+    if (index === 0) {
       return this.head;
     }
     while (index--) {
@@ -80,6 +82,22 @@ class LinkedList {
       }
     }
     return node;
+  }
+
+  // function that returns the index of the node containing value,
+  // or null if not found
+  find(value) {
+    let index = 0;
+    let node = this.head;
+    while (node) {
+      if (node.value === value) {
+        console.log(`index is ${index}`);
+        return index;
+      }
+      node = node.nextNode;
+      index++;
+    }
+    return null;
   }
 
   // function that removes the last element from the list
@@ -98,8 +116,8 @@ class LinkedList {
       previous = tail;
       tail = tail.nextNode;
     }
-
     previous.nextNode = null;
+    console.log(`last element was removed, it is now ${previous.nextNode}`);
     return this.head;
   }
 
@@ -108,7 +126,7 @@ class LinkedList {
     const current = this.head;
     while (current != null) {
       if (current.value === value) {
-        console.log(`linked list contains: ${value}`);
+        console.log(`linked list contains the value: ${value}`);
         return true;
       }
       current = current.next;
@@ -122,8 +140,10 @@ const list = new LinkedList();
 list.append(5);
 list.prepend(2);
 list.prepend(10);
+list.prepend(15);
 list.pop();
-list.contains(10);
+list.contains(15);
 console.log(list);
 list.size();
 console.log(list.at(1));
+list.find(15);
