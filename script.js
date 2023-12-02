@@ -134,6 +134,19 @@ class LinkedList {
     console.log(`linked list does not contain: ${value}`);
     return false;
   }
+
+  // function "toString" that represents the linkedlist object as strings,
+  // so it can print them as ( value ) -> ( value ) -> ( value ) -> null
+  toString() {
+    let node = this.head;
+    let string = '';
+    while (node) {
+      string += `${node.value}->`;
+      node = node.nextNode;
+    }
+    string += 'NULL';
+    console.log(string);
+  }
 }
 
 const list = new LinkedList();
@@ -147,3 +160,4 @@ console.log(list);
 list.size();
 console.log(list.at(1));
 list.find(15);
+list.toString();
