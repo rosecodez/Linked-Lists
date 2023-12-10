@@ -123,13 +123,13 @@ class LinkedList {
 
   // function that return true if the passed value is in the list and otherwise returns false
   contains(value) {
-    const current = this.head;
-    while (current != null) {
-      if (current.value === value) {
+    const node = this.head;
+    while (node != null) {
+      if (node.value === value) {
         console.log(`linked list contains the value: ${value}`);
         return true;
       }
-      current = current.next;
+      node = node.next;
     }
     console.log(`linked list does not contain: ${value}`);
     return false;
